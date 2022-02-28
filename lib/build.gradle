@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlinx:multik-api:0.1.1'
+    implementation 'org.jetbrains.kotlinx:multik-default:0.1.1'
+    implementation 'space.kscience:kmath-core:0.2.1'
+    implementation 'org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.1.1'
+    implementation 'org.jetbrains.lets-plot:lets-plot-image-export:2.2.1'
+}
