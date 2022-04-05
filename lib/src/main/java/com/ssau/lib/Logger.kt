@@ -6,5 +6,9 @@ class Logger {
         fun log(string: String) {
             println(string)
         }
+        @JvmStatic
+        fun logIters(tag: String, iters: Int) {
+            log("$tag iterations number: $iters")
+        }
     }
 }
