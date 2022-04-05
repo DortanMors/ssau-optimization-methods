@@ -1,12 +1,12 @@
 package com.ssau.lib.lab2
 
 class GoldenRatioN : MinFinderN {
-    override fun findMinN(f: (x: Vec) -> Double, x0: Vec, x1: Vec, eps: Double): Vec {
+    override fun findMinN(f: (x: Vector) -> Double, x0: Vector, x1: Vector, eps: Double): Vector {
         var left = x0
         var a = x0
         var right = x1
         var b = x1
-        var dx: Vec
+        var dx: Vector
         val maxIteration = (1/eps).toInt()
         var i = 0
         while(i < maxIteration) {

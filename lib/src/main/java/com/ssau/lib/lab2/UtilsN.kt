@@ -3,28 +3,28 @@ package com.ssau.lib.lab2
 import com.ssau.lib.Logger
 import kotlin.math.sqrt
 
-typealias Vec = MutableList<Double>
-fun Vec(v: Collection<Double>): Vec = v.toMutableList()
-fun Collection<Double>.toVec() = Vec(this)
+typealias Vector = MutableList<Double>
+fun vecOf(v: Collection<Double>): Vector = v.toMutableList()
+fun Collection<Double>.toVec() = vecOf(this)
 
 val phi = (1 + sqrt(5.0)) * 0.5
 
 val reciprocalPhi = 1 / phi
 
-fun calcDir(a: Vec, b: Vec) =
+fun calcDir(a: Vector, b: Vector) =
     (b - a).normalized()
 
-operator fun Vec.plus(v: Double): Vec = map { it + v }.toVec()
+operator fun Vector.plus(v: Double): Vector = map { it + v }.toVec()
 
-operator fun Vec.times(v: Double): Vec = map { it * v }.toVec()
+operator fun Vector.times(v: Double): Vector = map { it * v }.toVec()
 
-operator fun Vec.plus(vec: Vec): Vec = zip(vec).map { (l, r) -> l + r }.toVec()
+operator fun Vector.plus(vec: Vector): Vector = zip(vec).map { (l, r) -> l + r }.toVec()
 
-operator fun Vec.minus(vec: Vec) = zip(vec).map { (l, r) -> l - r }.toVec()
+operator fun Vector.minus(vec: Vector) = zip(vec).map { (l, r) -> l - r }.toVec()
 
-fun Vec.abs() = sqrt(map { it * it }.sum())
+fun Vector.abs() = sqrt(map { it * it }.sum())
 
-fun Vec.normalized() = (1 / abs()).let { norm -> map { it * norm } }.toVec()
+fun Vector.normalized() = (1 / abs()).let { norm -> map { it * norm } }.toVec()
 
 fun fibonacci(f: (x: Double)->Double, left: Double, right: Double, eps: Double): Double {
     var x0 = left
@@ -69,7 +69,7 @@ fun fibonacciNumbers(index: Int): IntArray {
     return IntArray(index).also {
         it[0] = 1
         it[1] = 1
-        for (i in 2..index) it[i] = it[i - 1] + it[i - 2]
+        for (i in 2 until index) it[i] = it[i - 1] + it[i - 2]
     }
 }
 

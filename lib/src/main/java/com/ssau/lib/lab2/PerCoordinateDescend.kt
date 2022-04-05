@@ -4,10 +4,10 @@ import com.ssau.lib.Logger
 import kotlin.math.abs
 
 class PerCoordinateDescend : MinFinderN {
-    override fun findMinN(f: (x: Vec) -> Double, x0: Vec, x1: Vec, eps: Double): Vec {
+    override fun findMinN(f: (x: Vector) -> Double, x0: Vector, x1: Vector, eps: Double): Vector {
         val dichotomyN = DichotomyN()
-        var a: Vec = x0.toMutableList()
-        var b: Vec = x0.toMutableList()
+        var a: Vector = x0.toVec()
+        var b: Vector = x0.toVec()
 
         val step = 1.0
 
@@ -29,8 +29,8 @@ class PerCoordinateDescend : MinFinderN {
             b[coordId] -= eps
             b[coordId] = if (y0 > y1) b[coordId] + step else b[coordId] - step
             xI = a[coordId]
-            b = dichotomyN.findMinN(f, a, b, eps).toMutableList()
-            a = b.toMutableList()
+            b = dichotomyN.findMinN(f, a, b, eps).toVec()
+            a = b.toVec()
             if (abs(b[coordId] - xI) < eps) {
                 optCoordN++
                 if (optCoordN == b.size) {

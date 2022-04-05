@@ -1,5 +1,5 @@
 package com.ssau.lib.lab2
 
 interface MinFinderN {
-    fun findMinN(f: (x: Vec) -> Double, x0: Vec, x1: Vec, eps: Double): Vec
+    fun findMinN(f: (x: Vector) -> Double, x0: Vector, x1: Vector, eps: Double): Vector
 }

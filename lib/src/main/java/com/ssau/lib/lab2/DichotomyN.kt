@@ -1,9 +1,11 @@
 package com.ssau.lib.lab2
 
+import com.ssau.lib.Logger
+
 
 class DichotomyN : MinFinderN {
-    override fun findMinN(f: (x: Vec) -> Double, x0: Vec, x1: Vec, eps: Double)
-    : Vec {
+    override fun findMinN(f: (x: Vector) -> Double, x0: Vector, x1: Vector, eps: Double)
+    : Vector {
         var start = x0
         var end = x1
         val dir = calcDir(start, end)
@@ -17,7 +19,7 @@ class DichotomyN : MinFinderN {
                 start = xc
             ++i
         }
-        println("$i iterations")
+        Logger.logIters(javaClass.simpleName, i)
         return (start + end) * 0.5
     }
 }

@@ -3,7 +3,7 @@ package com.ssau.lib.lab2
 import com.ssau.lib.Logger
 
 class FibonacciN : MinFinderN {
-    override fun findMinN(f: (x: Vec) -> Double, x0: Vec, x1: Vec, eps: Double): Vec {
+    override fun findMinN(f: (x: Vector) -> Double, x0: Vector, x1: Vector, eps: Double): Vector {
         val maxIterations = closestFibonacci((x1 - x0).abs() / eps)
         var cntr = maxIterations - 1
         val fiboNachos = fibonacciNumbers(maxIterations)
@@ -11,7 +11,7 @@ class FibonacciN : MinFinderN {
         var right = x1
         var a = x0
         var b = x1
-        var dx: Vec
+        var dx: Vector
 
         while (cntr >= 2) {
             if ((b - a).abs() < eps) break
