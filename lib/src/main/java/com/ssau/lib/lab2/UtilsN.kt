@@ -4,6 +4,10 @@ import kotlin.math.sqrt
 
 typealias Vec = List<Double>
 
+val phi = (1 + sqrt(5.0)) * 0.5
+
+val reciprocalPhi = 1 / phi
+
 fun calcDir(a: Vec, b: Vec) =
     (b - a).normalized()
 
